@@ -4,8 +4,8 @@
 
 using namespace std;
 
-double averageScore(double* valptr, int num, char option);
-double maxScore(double* valptr, int num);
+double averageScore(double* valptr, int num, char option);//computes average score of tests
+double maxScore(double* valptr, int num);//computes highest score
 
 
 int main(){
@@ -18,6 +18,10 @@ int main(){
 	
 	cout << "Enter the number of test scores you would like to enter: \n";
 	cin >> num;
+	if (num <= 0){
+		cout << "Please enter again. " << endl;
+		cin >> num;
+	}
 	
 	const int NUM_TESTS = num;
 	scorePtr = new double[NUM_TESTS];
@@ -31,6 +35,7 @@ int main(){
 		}
 		else {
 			cout << "Try again." << endl;
+			scorePtr[i] = score;
 		}
 	}
 
